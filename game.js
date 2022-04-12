@@ -1,5 +1,9 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth - 20;
-canvas.height = window.innerHeight - 20;
+function resize() {
+    canvas.width = window.innerWidth - 40;
+    canvas.height = window.innerHeight - 40;
+}
+
+document.addEventListener('resize', resize);
