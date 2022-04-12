@@ -6,4 +6,4 @@ function resize() {
     canvas.height = window.innerHeight - 40;
 }
 
-document.addEventListener('resize', resize);
+window.addEventListener('resize', resize);
