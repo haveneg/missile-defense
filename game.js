@@ -38,7 +38,7 @@ for (let i = 0; i < 20; i++) {
 function step() {
 
     //fading the screen
-    ctx.fillStyle = "rgba(0, 0, 0, 0.01)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.009)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 

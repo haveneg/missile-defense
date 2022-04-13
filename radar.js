@@ -21,7 +21,7 @@ class Radar {
             if (this.currentPointState == "active") {
                 ctx.fillStyle = "rgb(0, 255, 0)";
             } else if (this.currentPointState == "dormant") {
-                ctx.fillStyle = "rgb(0, 75, 0)";
+                ctx.fillStyle = "rgb(0, 100, 0)";
             }
             ctx.fillRect(this.currentPointX, this.currentPointY, 2, 2);
 
