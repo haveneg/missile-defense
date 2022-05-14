@@ -8,14 +8,16 @@ class Missile extends GameObject {
         this.yVelocity = 0;
         this.accelerationConstant = 0.003;
         this.topSpeed = 1;
+        this.image = new Image();
+        this.image.src = "missileicon.png";
     }
     update() {
-        if (utils.hypotenuse(this.xVelocity, this.yVelocity) < this.topSpeed) {
+        if (utils.hypotenuse(this.xVelocity, this.yVelocity) <= this.topSpeed) {
             this.xVelocity += Math.cos(this.angle) * this.accelerationConstant;
             this.yVelocity += Math.sin(this.angle) * this.accelerationConstant;
-        } else if (utils.hypotenuse(this.xVelocity, this.yVelocity) >= this.topSpeed) {
-            this.xVelocity = this.topSpeed * Math.cos(this.angle);
-            this.yVelocity = this.topSpeed * Math.sin(this.angle);
+        } else if (utils.hypotenuse(this.xVelocity, this.yVelocity) > this.topSpeed) {
+            this.xVelocity -= this.xVelocity - (Math.cos(this.angle) * this.topSpeed);
+            this.yVelocity -= this.yVelocity - (Math.sin(this.angle) * this.topSpeed);
         }
         this.x += this.xVelocity;
         this.y += this.yVelocity;
@@ -32,9 +34,9 @@ class Missile extends GameObject {
     draw() {
         ctx.save();
         ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle);
+        ctx.rotate(this.angle + (Math.PI / 2));
         ctx.strokeStyle = "rgb(0, 100, 0)";
-        ctx.strokeRect(-10, -10, 30, 20);
+        ctx.drawImage(this.image, -15, -15, 30, 30);
         ctx.restore();
     }
 }

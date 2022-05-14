@@ -17,7 +17,10 @@ window.addEventListener('resize', resize);
 let radarAngle = 0;
 let utils = new Utility();
 let gameObjectList = [];
-let radar = new Radar();
+let radar = new Radar({
+    centered: true,
+    distance: 1300
+});
 
 
 
@@ -73,7 +76,7 @@ for (let i = 0; i < 20; i++) {
 function step() {
 
     //fading the screen
-    ctx.fillStyle = "rgba(0, 0, 0, 0.009)";
+    ctx.fillStyle = "rgba(0, 0, 0, 0.006)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 
@@ -82,10 +85,8 @@ function step() {
 
     //update game objects
     gameObjectList.forEach(object => {
-        if (object.tag == "friend") {
-            object.update();
-            object.draw();
-        }
+        object.update();
+        object.draw();
     });
 
     //mouse drawing
